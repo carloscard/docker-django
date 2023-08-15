@@ -1,9 +1,9 @@
 from django.db import models
-
+from apps.base.models import BaseModel
 
 # Create your models here.
 
-class Product(models.Model):
+class Product(BaseModel):
     product_name = models.CharField(max_length=250)
     brand = models.CharField(max_length=250)
     product_type_id = models.CharField(max_length=50)
@@ -16,5 +16,7 @@ class Product(models.Model):
     has_sleeves = models.BooleanField(null=True)
     photo_url = models.URLField(null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
-    created_at = models.DateTimeField(null=True)
-    updated_at = models.DateTimeField(null=True)
+
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'

@@ -1,5 +1,5 @@
 from apps.products.models import Product
-from apps.crud_base.crud_base import CRUDBase
+from apps.base.crud_base import CRUDBase
 
 
 class CRUDProducts(CRUDBase):
