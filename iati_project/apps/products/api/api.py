@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from apps.products.api.serializers import ProductSerializer, ProductCreateSerializer, ProductUpdateSerializer
+from apps.products.api.serializers.product_serializers import ProductSerializer, ProductCreateSerializer, ProductUpdateSerializer
 from apps.products.crud_products.crud_products import products
 from rest_framework import status
 

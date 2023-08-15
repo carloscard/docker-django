@@ -2,7 +2,6 @@
 from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union
 from django.db import models
 ModelType = TypeVar("ModelType", bound=models.Model)
-from apps.products.api.serializers import ProductSerializer, ProductCreateSerializer, ProductUpdateSerializer
 from rest_framework.response import Response
 
 
