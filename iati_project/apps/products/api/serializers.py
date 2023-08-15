@@ -19,17 +19,9 @@ class ProductCreateSerializer(ProductBaseSerializer):
     size = serializers.CharField(required=True)
     created_at = serializers.DateTimeField(default=timezone.now)
 
-    class Meta:
-        model = Product
-        fields = [
-            'product_name',
-            'brand',
-            'product_type_id',
-            'main_color',
-            'logo_color',
-            'size',
-            'created_at'
-        ]
+
+class ProductUpdateSerializer(ProductBaseSerializer):
+    updated_at = serializers.DateTimeField(default=timezone.now)
 
 
 class ProductSerializer(ProductBaseSerializer):
