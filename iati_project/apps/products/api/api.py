@@ -1,7 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.views import APIView
-from apps.products.api.serializers import ProductSerializer
+from apps.products.api.serializers import ProductSerializer, ProductCreateSerializer
 from apps.products.models import Product
 
 
@@ -24,9 +23,9 @@ def get_product_by_id(request, product_id):
 @api_view(['POST'])
 def add_product(request):
     if request.method == 'POST':
-        product_serializer = ProductSerializer(data=request.data)
+        product_serializer = ProductCreateSerializer(data=request.data)
         if product_serializer.is_valid():
-            product_serializer.save(product_serializer.data)
+            product_serializer.save()
             return Response(product_serializer.data)
         return Response(product_serializer.errors)
 
