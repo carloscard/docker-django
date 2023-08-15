@@ -32,5 +32,13 @@ class ProductCreateSerializer(ProductBaseSerializer):
         ]
 
 
+class ProductUpdateSerializer(ProductBaseSerializer):
+    updated_at = serializers.DateTimeField(default=timezone.now)
+
+    class Meta:
+        model = Product
+        fields = ['updated_at']
+
+
 class ProductSerializer(ProductBaseSerializer):
     pass
