@@ -12,6 +12,16 @@ class SizingType(ChoiceEnum):
 
 # Create your models here.
 
+
+class Cart(BaseModel):
+    product_quantity = models.IntegerField()
+    current_date = models.DateTimeField('Current date', auto_now=False, auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Cart'
+        verbose_name_plural = 'Carts'
+
+
 class Product(BaseModel):
     product_name = models.CharField(max_length=150)
     brand = models.CharField(max_length=50)
@@ -25,6 +35,7 @@ class Product(BaseModel):
     has_sleeves = models.BooleanField(null=True)
     photo_url = models.URLField(null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
+    cart = models.ForeignKey(Cart, null=True, on_delete=models.CASCADE)
     description = models.CharField(max_length=250)
     deleted_at = models.DateTimeField('Deleted date', null=True)
 
@@ -53,8 +64,8 @@ class Material(BaseModel):
 
 
 class CompositionMaterial(BaseModel):
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
-    material_id = models.ForeignKey(Material, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    material = models.ForeignKey(Material, on_delete=models.CASCADE)
     percentage = models.IntegerField()
 
     class Meta:
@@ -81,10 +92,9 @@ class Stock(BaseModel):
     inclusion_date = models.DateField('Inclusion date')
     initial_stock = models.IntegerField()
     current_stock = models.IntegerField()
-    product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Stock'
         verbose_name_plural = 'Stocks'
-
 

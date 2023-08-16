@@ -23,7 +23,18 @@ class ProductCreateSerializer(ProductBaseSerializer):
 
 
 class ProductUpdateSerializer(ProductBaseSerializer):
-    updated_at = serializers.DateTimeField(default=timezone.now)
+    pass
+
+    """ 
+    def to_representation(self, instance):
+        return {
+            'id':instance.id
+        }
+    """
+
+class ProductDeleteSerializer(ProductBaseSerializer):
+    state = serializers.BooleanField(required=True)
+    deleted_at = serializers.DateTimeField(default=timezone.now())
 
 
 class ProductSerializer(ProductBaseSerializer):

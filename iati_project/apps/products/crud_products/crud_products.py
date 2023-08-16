@@ -7,9 +7,14 @@ class CRUDProducts(CRUDBase):
         super().__init__(Product)
 
     """ 
-    def get_multi(self):
+    def get(self):
         products = self.model.objects.filter(brand="nike").all()
         return products
     """
+    def get(self, id: int):
+        return self.model.objects.filter(pk=id, state=True)
+
+    def get_multi(self):
+        return self.model.objects.filter(state=True).all()
 
 products = CRUDProducts()
