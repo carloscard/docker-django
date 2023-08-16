@@ -2,7 +2,6 @@
 from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union
 from django.db import models
 ModelType = TypeVar("ModelType", bound=models.Model)
-from rest_framework.response import Response
 
 
 class CRUDBase:
@@ -16,11 +15,11 @@ class CRUDBase:
         """
         self.model = model
 
-    def get_multi(self, skip: int = 0, limit: int = 100):
+    def get_multi(self)-> ModelType:
         return self.model.objects.all()
 
     def get(self, id: int) -> ModelType:
-        return self.model.objects.filter(id=id).first()
+        return self.model.objects.filter(pk=id)
 
     def create(self, obj_in) -> ModelType:
         obj_in.save()

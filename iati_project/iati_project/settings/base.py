@@ -39,6 +39,7 @@ LOCAL_APPS = [
 # Third Application definition
 THIRD_APPS = [
     'rest_framework',
+    'drf_yasg',
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
