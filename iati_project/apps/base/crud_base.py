@@ -20,7 +20,7 @@ class CRUDBase:
         return self.model.objects.all()
 
     def get(self, id: int) -> ModelType:
-        return self.model.objects.filter(id=id).first()
+        return self.model.objects.filter(pk=id)
 
     def create(self, obj_in) -> ModelType:
         obj_in.save()
