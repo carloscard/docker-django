@@ -1,5 +1,5 @@
 
-from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union
+from typing import Type, TypeVar
 from django.db import models
 ModelType = TypeVar("ModelType", bound=models.Model)
 
