@@ -16,8 +16,7 @@ SECRET_KEY = 'django-insecure-=@)b3&)$s&949c*fbaks(u(k47h4x6&k+m%*o1i)xx68oe2o*2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] # por temas de seguridad, Solo deberíamos admitir el dominio de nuestra aplicación,
-                        # para este ejemplo voy a permitir que todos puedan acceder
+ALLOWED_HOSTS = ['*'] # Just for testing
 
 
 # Base Application definition
@@ -39,6 +38,7 @@ LOCAL_APPS = [
 # Third Application definition
 THIRD_APPS = [
     'rest_framework',
+    'drf_yasg',
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
