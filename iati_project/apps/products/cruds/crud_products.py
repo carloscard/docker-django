@@ -5,8 +5,6 @@ from django.db.models import Case, When, Value, CharField
 from enumchoicefield import ChoiceEnum
 from apps.products.cruds.crud_colors import color_crud
 from apps.products.cruds.crud_materials import material_crud
-from apps.products.models import Stock
-
 
 
 class ProductType(ChoiceEnum):
@@ -21,7 +19,6 @@ class CRUDProducts(CRUDBase):
     def get(self, id: int):
         return self.model.objects.filter(pk=id, state=True)
 
-
     def get_multi(self):
 
         # Order by caps then t-shirts
@@ -32,7 +29,8 @@ class CRUDProducts(CRUDBase):
             output_field=CharField(),
         )
 
-        return self.model.objects.filter(state=True).order_by('product_type_id').order_by(orden_case,'-created_at').all()
+        return self.model.objects.filter(state=True).order_by('product_type_id').order_by(orden_case,
+                                                                                          '-created_at').all()
 
     def create(self, obj_in):
         is_cap = obj_in.validated_data.get('product_type_id').upper() == str(ProductType.CAP)
@@ -79,8 +77,8 @@ class CRUDProducts(CRUDBase):
 
         obj_in.validated_data['description'] = description
 
-
         obj_in.save()
         return obj_in
+
 
 products = CRUDProducts()

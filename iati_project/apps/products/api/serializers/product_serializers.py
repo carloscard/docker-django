@@ -7,7 +7,6 @@ class ProductBaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
-        # exclude = ('state', 'created_at', 'updated_at',)
         extra_kwargs = {field_name: {'required': False} for field_name in model._meta.fields}
 
 
@@ -24,7 +23,6 @@ class ProductUpdateSerializer(ProductBaseSerializer):
 
 
 class ProductDeleteSerializer(ProductBaseSerializer):
-    # state = serializers.BooleanField(required=True)
     deleted_at = serializers.DateTimeField(default=timezone.now())
 
 

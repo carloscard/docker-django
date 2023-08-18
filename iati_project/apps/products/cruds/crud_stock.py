@@ -10,7 +10,4 @@ class CRUDStock(CRUDBase):
         return self.model.objects.filter(product_id=product_id, state=True).first()
 
 
-
-
-
 stock_crud = CRUDStock()

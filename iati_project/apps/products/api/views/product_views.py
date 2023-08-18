@@ -41,7 +41,6 @@ class ProductViewSets(viewsets.ModelViewSet):
         if self.get_queryset(pk):
             product_serializer = self.serializer_class(self.get_queryset(pk), data=request.data)
             if product_serializer.is_valid():
-                #product_serializer.save()
                 product_update = products.update(product_serializer)
                 return Response(product_update.data, status=status.HTTP_200_OK)
             return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
