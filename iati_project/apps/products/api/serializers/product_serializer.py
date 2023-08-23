@@ -79,6 +79,7 @@ class ProductSerializer(ProductBaseSerializer):
                 'cart',
                 'material_composition',
                 'materials',
+                'deleted_at',
                 'update_at'
             ]
         elif instance.product_type_id == "T0002":
@@ -86,6 +87,7 @@ class ProductSerializer(ProductBaseSerializer):
                 'logo_color',
                 'cart',
                 'materials',
+                'deleted_at',
                 'update_at'
             ]
 
