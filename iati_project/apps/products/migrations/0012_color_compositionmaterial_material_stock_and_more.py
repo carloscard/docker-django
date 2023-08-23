@@ -143,6 +143,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='materials',
-            field=models.ManyToManyField(null=True, related_name='product', through='products.CompositionMaterial', to='products.material'),
+            field=models.ManyToManyField(related_name='product', through='products.CompositionMaterial', to='products.material'),
         ),
     ]

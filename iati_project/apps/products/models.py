@@ -43,7 +43,7 @@ class Product(BaseModel):
     secondary_colors = ArrayField(models.IntegerField(null=True), null=True)
     logo_color = models.IntegerField(null=True)
     size = models.CharField(max_length=10, null=True)
-    materials = models.ManyToManyField('Material', related_name='product', through='CompositionMaterial', null=True)
+    materials = models.ManyToManyField('Material', related_name='product', through='CompositionMaterial')
     sizing_type = EnumChoiceField(enum_class=SizingType, default=SizingType.UNISEX, null=True)
     has_sleeves = models.BooleanField(null=True)
     photo_url = models.URLField(null=True)

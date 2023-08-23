@@ -5,6 +5,9 @@ from django.utils import timezone
 from apps.products.api.serializers.product_serializer import ProductSerializer, ProductCreateSerializer, \
     ProductUpdateSerializer, ProductDeleteSerializer
 from apps.products.cruds.crud_products import products
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class ProductViewSets(viewsets.ModelViewSet):
@@ -23,12 +26,15 @@ class ProductViewSets(viewsets.ModelViewSet):
         To create a product
         """
         self.serializer_class = ProductCreateSerializer
+        logger.info(f'request data to create a product: {request.data}')
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
             products.create(serializer)
+            logger.info(f'product create response code: {status.HTTP_201_CREATED}')
             return Response({'message': 'Product created'}, status=status.HTTP_201_CREATED)
 
+        logger.error(f'Error in product create: {serializer.errors}')
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def update(self, request, pk=None):
@@ -40,8 +46,13 @@ class ProductViewSets(viewsets.ModelViewSet):
             product_serializer = self.serializer_class(self.get_queryset(pk), data=request.data)
             if product_serializer.is_valid():
                 product_update = products.update(product_serializer)
+                logger.info(f'product update response code: {status.HTTP_200_OK}')
                 return Response(product_update.data, status=status.HTTP_200_OK)
+
+            logger.error(f'Error in product update: {product_serializer.errors}')
             return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        logger.error(f'Error in product update: Product not found')
         return Response({'message': 'Product not found'}, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
@@ -54,9 +65,11 @@ class ProductViewSets(viewsets.ModelViewSet):
             product_query.state = False
             product_query.deleted_at = timezone.now()
             product_query.save()
+            logger.info(f'product destroy response code: {status.HTTP_200_OK}')
             return Response(
                 {'message': f'Product with id {product_query.id} has been deleted'}, status=status.HTTP_200_OK
             )
 
+        logger.error(f'Error in product destroy: Product not found')
         return Response({'message': 'Product not found'}, status=status.HTTP_400_BAD_REQUEST)
 
