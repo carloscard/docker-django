@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from apps.products.models import Cart
-from apps.products.api.serializers.product_serializers import ProductSerializer, ProductCartSerializer
+from apps.products.models import Cart, Product
+from apps.products.api.serializers.product_serializer import ProductSerializer, ProductCartSerializer
 
 
 class CartBaseSerializer(serializers.ModelSerializer):
@@ -32,5 +32,8 @@ class CartSerializer(CartBaseSerializer):
 
     def get_total_price(self, obj):
         products = obj.product_set.all()
-        total = sum(product.price or 0 for product in products)
+
+        total = ((product.price or 0) * obj.product_quantity for product in products)
+
         return total
+

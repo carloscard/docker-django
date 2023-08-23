@@ -7,7 +7,7 @@ class CRUDCart(CRUDBase):
     def __init__(self):
         super().__init__(Cart)
 
-    def get_multi(self) :
+    def get_multi(self):
         return self.model.objects.filter(current_date=timezone.now().date(), state=True).all()
 
 
