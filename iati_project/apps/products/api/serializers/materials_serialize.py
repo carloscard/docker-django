@@ -2,7 +2,7 @@ from rest_framework import serializers
 from apps.products.models import Stock
 
 
-class StockBaseSerializer(serializers.ModelSerializer):
+class MaterialBaseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
@@ -11,18 +11,18 @@ class StockBaseSerializer(serializers.ModelSerializer):
         extra_kwargs = {field_name: {'required': False} for field_name in model._meta.fields}
 
 
-class StockCreateSerializer(StockBaseSerializer):
+class MaterialCreateSerializer(MaterialBaseSerializer):
     pass
 
 
-class StockUpdateSerializer(StockBaseSerializer):
+class MaterialUpdateSerializer(MaterialBaseSerializer):
     pass
 
 
-class StockDeleteSerializer(StockBaseSerializer):
+class MaterialDeleteSerializer(MaterialBaseSerializer):
     pass
 
 
-class StockSerializer(StockBaseSerializer):
+class MaterialSerializer(MaterialBaseSerializer):
     pass
 
