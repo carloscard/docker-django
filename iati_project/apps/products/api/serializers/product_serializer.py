@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.utils import timezone
-from apps.products.models import Product
+from apps.products.models import Product, Color
 
 
 class ProductBaseSerializer(serializers.ModelSerializer):
@@ -39,6 +39,29 @@ class ProductCartSerializer(ProductBaseSerializer):
 
 class ProductSerializer(ProductBaseSerializer):
     current_stock = serializers.SerializerMethodField()
+    material_composition = serializers.SerializerMethodField()
+    main_color = serializers.SerializerMethodField()
+    secondary_colors = serializers.SerializerMethodField()
+    logo_color = serializers.SerializerMethodField()
+
+    def get_logo_color(self, obj):
+        color_id = obj.main_color
+        color = Color.objects.get(id=color_id)
+        return color.color_name
+
+    def get_main_color(self, obj):
+        color_id = obj.main_color
+        color = Color.objects.get(id=color_id)
+        return color.color_name
+
+    def get_secondary_colors(self, obj):
+        color_ids = obj.secondary_colors
+        colors = Color.objects.filter(id__in=color_ids)
+        return [color.color_name for color in colors]
+
+    def get_material_composition(self, obj):
+        materials = obj.compositionmaterial_set.all()
+        return [material.material.material_name for material in materials]
 
     def get_current_stock(self, obj):
         last_stock = obj.stock_set.last()
@@ -48,9 +71,23 @@ class ProductSerializer(ProductBaseSerializer):
         exclude_fields = []
 
         if instance.product_type_id == "G0001":  # If product_type_id is Cap
-            exclude_fields = ['size', 'sizing_type', 'has_sleeves', 'materials', 'update_at']
+            exclude_fields = [
+                'size',
+                'sizing_type',
+                'has_sleeves',
+                'materials',
+                'cart',
+                'material_composition',
+                'materials',
+                'update_at'
+            ]
         elif instance.product_type_id == "T0002":
-            exclude_fields = ['logo_color', 'update_at', 'update_at']
+            exclude_fields = [
+                'logo_color',
+                'cart',
+                'materials',
+                'update_at'
+            ]
 
         representation = super().to_representation(instance)
 

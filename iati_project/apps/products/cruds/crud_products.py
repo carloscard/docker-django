@@ -59,6 +59,7 @@ class CRUDProducts(CRUDBase):
 
         elif is_t_shirt:
             materials = "materials="
+            print(obj_in.validated_data)
             for material in list(obj_in.validated_data.get('materials')):
                 materials += f'{material_crud.get_material_name_by_id(material)}&'
 

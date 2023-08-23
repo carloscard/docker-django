@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.utils import timezone
-from apps.products.api.serializers.product_serializers import ProductSerializer, ProductCreateSerializer, \
+from apps.products.api.serializers.product_serializer import ProductSerializer, ProductCreateSerializer, \
     ProductUpdateSerializer, ProductDeleteSerializer
 from apps.products.cruds.crud_products import products
 
@@ -26,10 +26,8 @@ class ProductViewSets(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            serializer.validated_data.get('materials')
             products.create(serializer)
-
-            return Response({'message': f'Product created'}, status=status.HTTP_201_CREATED)
+            return Response({'message': 'Product created'}, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -44,6 +42,7 @@ class ProductViewSets(viewsets.ModelViewSet):
                 product_update = products.update(product_serializer)
                 return Response(product_update.data, status=status.HTTP_200_OK)
             return Response(product_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'message': 'Product not found'}, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
         """
