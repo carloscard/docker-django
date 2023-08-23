@@ -1,10 +1,9 @@
-
-
 from mailjet_rest import Client
+from iati_project.settings.base import env
 
 
 def get_client():
-    return Client(auth=("5b85264338d5e0d990a9eb9c555171a5", "b612853eb59be347f7e734a6c8916f45"), version='v3.1')
+    return Client(auth=(env('MAILJET_API_KEY'), env('MAILJET_API_SECRET')), version='v3.1')
 
 
 class MailerService:

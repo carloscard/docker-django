@@ -58,9 +58,6 @@ class ControllerProduct:
                         added_item=product_exist
                     )
 
-                print("****++++**")
-                print(response)
-                print(response_status)
                 if response_status in [200, 201]:
                     self.update_stock(
                         current_stock=current_stock,
@@ -81,8 +78,6 @@ class ControllerProduct:
     def update_item(self, current_cart, product_quantity):
 
         self.request.data['product_quantity'] = current_cart.product_quantity + product_quantity
-        print("^^^^^^")
-        print(self.request.data['product_quantity'])
         if self.request.data['product_quantity'] < 0:
             response = {'message': f'You only have {current_cart.product_quantity} of this product in your basket'}
             response_status = status.HTTP_400_BAD_REQUEST
@@ -102,9 +97,9 @@ class ControllerProduct:
             if self.request.data['product_quantity'] == 0:
                 response = {'message': f'Item removed from the basket'}
             elif product_quantity > 0:
-                response = {'message': f'{product_quantity*-1} Item has been removed from the basket'}
+                response = {'message': f'{product_quantity} Item added to the basket'}
             else:
-                response = {'message': f'{product_quantity} Item removed from the basket'}
+                response = {'message': f'{product_quantity*-1} Item has been removed from the basket'}
 
             cart_crud.update(cart_update_serializer)
             response_status = status.HTTP_200_OK

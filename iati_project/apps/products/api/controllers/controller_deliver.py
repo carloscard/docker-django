@@ -35,13 +35,14 @@ class ControllerDeliver:
                 "order_date": str(timezone.now().date()),
                 "products": ''.join(self.products_description),
                 "address": self.request.data.get('address'),
-                "postal_code": self.request.data.get('postal_code')
+                "postal_code": self.request.data.get('postal_code'),
+                "phone": self.request.data.get('phone')
 
             }
 
             mailer = MailerService(
                 "carlos.cardenastest@gmail.com",
-                "carlos.cardenasaguirre@gmail.com",
+                self.request.data.get('email'),
                 5036528,
                 subject,
                 data,

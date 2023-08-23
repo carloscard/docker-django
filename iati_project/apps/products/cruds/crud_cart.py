@@ -8,8 +8,6 @@ class CRUDCart(CRUDBase):
         super().__init__(Cart)
 
     def get_multi(self):
-        print("*****")
-        print(timezone.now().date())
         return self.model.objects.filter(current_date=timezone.now().date(), state=True).all()
 
 

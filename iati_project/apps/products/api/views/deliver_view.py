@@ -7,8 +7,6 @@ from apps.products.cruds.crud_deliver import deliver_crud
 from apps.products.api.controllers.controller_deliver import ControllerDeliver
 
 
-
-
 class DeliverViewSets(viewsets.ModelViewSet):
     serializer_class = DeliverSerializer
 
