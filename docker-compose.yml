@@ -21,7 +21,6 @@ services:
     volumes:
       - static:/code/static
       - .:/code
-      - ./cronfile:/etc/cron.d/cronjob
 
     depends_on:
       - db_postgres
