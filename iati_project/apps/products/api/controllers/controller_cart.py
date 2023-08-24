@@ -52,16 +52,27 @@ class ControllerProduct:
 
                     # If it's not, a new product is added to the cart
                     else:
-                        response, response_status = self.new_item(
-                            added_item=product_exist
-                        )
+                        if product_quantity <= 0:
+                            logger.error(f'Negative quantity when add a new item')
+                            response = {'message': 'No negative quantities when adding a new product'}
+                            response_status = status.HTTP_400_BAD_REQUEST
+                        else:
+                            response, response_status = self.new_item(
+                                added_item=product_exist
+                            )
 
                 # If the cart doesn't exist, we create it
                 else:
                     logger.info(f'New cart')
-                    response, response_status = self.new_item(
-                        added_item=product_exist
-                    )
+                    if product_quantity <= 0:
+                        logger.error(f'Negative quantity when creating a cart')
+                        response = {'message': 'No negative quantities when creating a new cart'}
+                        response_status = status.HTTP_400_BAD_REQUEST
+
+                    else:
+                        response, response_status = self.new_item(
+                            added_item=product_exist
+                        )
 
                 if response_status in [200, 201]:
                     logger.info(f'Updating current stock')
@@ -87,9 +98,9 @@ class ControllerProduct:
 
         self.request.data['product_quantity'] = current_cart.product_quantity + product_quantity
         if self.request.data['product_quantity'] < 0:
-            response = {'message': f'You only have {current_cart.product_quantity} of this product in your basket'}
+            response = {'message': f'You only have {current_cart.product_quantity} of this product in your cart'}
             response_status = status.HTTP_400_BAD_REQUEST
-            logger.error(f'Error in cart controller: Not enough product in the basket')
+            logger.error(f'Error in cart controller: Not enough product in the cart')
             return response, response_status
 
         update_serializer = CartUpdateSerializer
@@ -104,11 +115,11 @@ class ControllerProduct:
         if cart_update_serializer.is_valid():
 
             if self.request.data['product_quantity'] == 0:
-                response = {'message': f'Item removed from the basket'}
+                response = {'message': f'Product removed from the cart'}
             elif product_quantity > 0:
-                response = {'message': f'{product_quantity} Item added to the basket'}
+                response = {'message': f'{product_quantity} product/s added to the cart'}
             else:
-                response = {'message': f'{product_quantity*-1} Item has been removed from the basket'}
+                response = {'message': f'{product_quantity*-1} Product/s has been removed from the cart'}
 
             cart_crud.update(cart_update_serializer)
             response_status = status.HTTP_200_OK
@@ -130,7 +141,7 @@ class ControllerProduct:
         added_item.cart_id = int(cart_create.data.get('id'))
         added_item.save()
 
-        response = self.cart_create_serializer.data
+        response = {'message': 'Product added to the cart'}
         response_status = status.HTTP_201_CREATED
 
         return response, response_status

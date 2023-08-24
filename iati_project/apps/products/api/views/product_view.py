@@ -5,7 +5,9 @@ from django.utils import timezone
 from apps.products.api.serializers.product_serializer import ProductSerializer, ProductCreateSerializer, \
     ProductUpdateSerializer, ProductDeleteSerializer
 from apps.products.cruds.crud_products import products
+from apps.products.cruds.crud_stock import stock_crud
 import logging
+from apps.products.models import Stock
 
 logger = logging.getLogger(__name__)
 

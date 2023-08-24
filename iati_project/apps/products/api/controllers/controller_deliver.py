@@ -24,7 +24,7 @@ class ControllerDeliver:
                 self.products_description.append(f'{product_in_basket.product_name}x{item.product_quantity} ')
                 self.total_price += product_in_basket.price * item.product_quantity
 
-                item.state = False
+                item.bought = True
                 item.save()
 
             subject = "Detalles de tu compra"

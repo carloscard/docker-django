@@ -1,0 +1,357 @@
+[
+{
+  "model": "products.product",
+  "pk": 101,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T16:57:26.971Z",
+    "updated_at": "2023-08-24T16:57:26.971Z",
+    "product_name": "Gorra Molona",
+    "brand": "Lacoste",
+    "product_type_id": "G0001",
+    "main_color": 3,
+    "secondary_colors": "[\"4\", \"5\"]",
+    "logo_color": 2,
+    "size": null,
+    "sizing_type": "UNISEX",
+    "has_sleeves": null,
+    "photo_url": "https://www.gorras.com/1",
+    "price": "15.00",
+    "cart": null,
+    "description": "product_name=Gorra Molona&product_type=G0001&brand=Lacoste&main_color=green&logo_color=blue&secondary_colors=orange&yellow&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 102,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T16:58:05.386Z",
+    "updated_at": "2023-08-24T16:58:05.386Z",
+    "product_name": "Gorra grande",
+    "brand": "Lacoste",
+    "product_type_id": "G0001",
+    "main_color": 2,
+    "secondary_colors": "[\"2\", \"5\"]",
+    "logo_color": 1,
+    "size": null,
+    "sizing_type": "UNISEX",
+    "has_sleeves": null,
+    "photo_url": "https://www.gorras.com/1",
+    "price": "25.00",
+    "cart": null,
+    "description": "product_name=Gorra grande&product_type=G0001&brand=Lacoste&main_color=blue&logo_color=red&secondary_colors=blue&yellow&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 103,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T16:58:27.598Z",
+    "updated_at": "2023-08-24T16:58:27.598Z",
+    "product_name": "Gorra small",
+    "brand": "Lacoste",
+    "product_type_id": "G0001",
+    "main_color": 3,
+    "secondary_colors": "[\"4\", \"5\"]",
+    "logo_color": 2,
+    "size": null,
+    "sizing_type": "UNISEX",
+    "has_sleeves": null,
+    "photo_url": "https://www.gorras.com/2",
+    "price": "10.00",
+    "cart": null,
+    "description": "product_name=Gorra small&product_type=G0001&brand=Lacoste&main_color=green&logo_color=blue&secondary_colors=orange&yellow&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 104,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T16:59:05.711Z",
+    "updated_at": "2023-08-24T16:59:05.711Z",
+    "product_name": "Gorra medium",
+    "brand": "nike",
+    "product_type_id": "G0001",
+    "main_color": 3,
+    "secondary_colors": "[\"4\", \"1\"]",
+    "logo_color": 2,
+    "size": null,
+    "sizing_type": "UNISEX",
+    "has_sleeves": null,
+    "photo_url": "https://www.gorras.com/3",
+    "price": "15.00",
+    "cart": null,
+    "description": "product_name=Gorra medium&product_type=G0001&brand=nike&main_color=green&logo_color=blue&secondary_colors=orange&red&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 105,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T16:59:42.459Z",
+    "updated_at": "2023-08-24T16:59:42.459Z",
+    "product_name": "Gorra brillante",
+    "brand": "nike",
+    "product_type_id": "G0001",
+    "main_color": 2,
+    "secondary_colors": "[\"3\", \"4\"]",
+    "logo_color": 1,
+    "size": null,
+    "sizing_type": "UNISEX",
+    "has_sleeves": null,
+    "photo_url": "https://www.gorras.com/4",
+    "price": "45.00",
+    "cart": null,
+    "description": "product_name=Gorra brillante&product_type=G0001&brand=nike&main_color=blue&logo_color=red&secondary_colors=green&orange&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 106,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T17:02:02.194Z",
+    "updated_at": "2023-08-24T17:02:02.194Z",
+    "product_name": "Camiseta fashion",
+    "brand": "adidas",
+    "product_type_id": "T0002",
+    "main_color": 5,
+    "secondary_colors": "[\"2\", \"4\"]",
+    "logo_color": null,
+    "size": "M",
+    "sizing_type": "UNISEX",
+    "has_sleeves": true,
+    "photo_url": "https://www.camisetas.com/1",
+    "price": "10.00",
+    "cart": null,
+    "description": "product_name=Camiseta fashion&product_type=T0002&brand=adidas&main_color=yellow&secondary_colors=blue&orange&materials=polyester&linen&size=adidas&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 107,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T17:05:33.029Z",
+    "updated_at": "2023-08-24T17:05:33.029Z",
+    "product_name": "Camiseta basic",
+    "brand": "adidas",
+    "product_type_id": "T0002",
+    "main_color": 3,
+    "secondary_colors": "[\"2\", \"1\"]",
+    "logo_color": null,
+    "size": "M",
+    "sizing_type": "MALE",
+    "has_sleeves": false,
+    "photo_url": "https://www.camisetas.com/2",
+    "price": "15.00",
+    "cart": null,
+    "description": "product_name=Camiseta basic&product_type=T0002&brand=adidas&main_color=green&secondary_colors=blue&red&materials=polyester&linen&size=adidas&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 108,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T17:07:57.748Z",
+    "updated_at": "2023-08-24T17:07:57.748Z",
+    "product_name": "Camiseta small",
+    "brand": "adidas",
+    "product_type_id": "T0002",
+    "main_color": 1,
+    "secondary_colors": "[\"4\", \"1\"]",
+    "logo_color": null,
+    "size": "XS",
+    "sizing_type": "MALE",
+    "has_sleeves": false,
+    "photo_url": "https://www.camisetas.com/2",
+    "price": "25.00",
+    "cart": null,
+    "description": "product_name=Camiseta small&product_type=T0002&brand=adidas&main_color=red&secondary_colors=orange&red&materials=polyester&linen&size=adidas&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 109,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T17:08:34.702Z",
+    "updated_at": "2023-08-24T17:08:34.702Z",
+    "product_name": "Camiseta medium",
+    "brand": "adidas",
+    "product_type_id": "T0002",
+    "main_color": 2,
+    "secondary_colors": "[\"2\", \"1\"]",
+    "logo_color": null,
+    "size": "XS",
+    "sizing_type": "UNISEX",
+    "has_sleeves": true,
+    "photo_url": "https://www.camisetas.com/3",
+    "price": "30.00",
+    "cart": null,
+    "description": "product_name=Camiseta medium&product_type=T0002&brand=adidas&main_color=blue&secondary_colors=blue&red&materials=cotton&linen&size=adidas&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.product",
+  "pk": 110,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-24T17:10:08.058Z",
+    "updated_at": "2023-08-24T17:10:08.058Z",
+    "product_name": "Camiseta brillante",
+    "brand": "POLO",
+    "product_type_id": "T0002",
+    "main_color": 2,
+    "secondary_colors": "[\"3\", \"1\"]",
+    "logo_color": null,
+    "size": "L",
+    "sizing_type": "UNISEX",
+    "has_sleeves": false,
+    "photo_url": "https://www.camisetas.com/12",
+    "price": "50.00",
+    "cart": null,
+    "description": "product_name=Camiseta brillante&product_type=T0002&brand=POLO&main_color=blue&secondary_colors=green&red&materials=cotton&linen&size=POLO&inclusion_year=2023",
+    "deleted_at": null
+  }
+},
+{
+  "model": "products.material",
+  "pk": 1,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "cotton"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 2,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "linen"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 3,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "hemp"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 4,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "polyester"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 5,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "nylon"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 6,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "wool"
+  }
+},
+{
+  "model": "products.material",
+  "pk": 7,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "material_name": "slik"
+  }
+},
+{
+  "model": "products.color",
+  "pk": 1,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "color_name": "red",
+    "hex": "FF0000"
+  }
+},
+{
+  "model": "products.color",
+  "pk": 2,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "color_name": "blue",
+    "hex": "0000FF"
+  }
+},
+{
+  "model": "products.color",
+  "pk": 3,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "color_name": "green",
+    "hex": "00FF00"
+  }
+},
+{
+  "model": "products.color",
+  "pk": 4,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "color_name": "orange",
+    "hex": "FFA500"
+  }
+},
+{
+  "model": "products.color",
+  "pk": 5,
+  "fields": {
+    "state": true,
+    "created_at": "2023-08-16T12:52:26Z",
+    "updated_at": null,
+    "color_name": "yellow",
+    "hex": "FFFF00"
+  }
+}
+]

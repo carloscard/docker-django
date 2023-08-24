@@ -1,5 +1,8 @@
 FROM python:3.9
+RUN apt-get -y update
 
+# Install cron.
+RUN apt-get install -y cron && touch /var/log/cron.log
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 
