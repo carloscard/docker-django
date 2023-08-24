@@ -102,8 +102,8 @@ class Color(BaseModel):
 
 
 class Stock(BaseModel):
-    initial_stock = models.IntegerField()
-    current_stock = models.IntegerField()
+    initial_stock = models.IntegerField(default=10)
+    current_stock = models.IntegerField(default=10)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     class Meta:
@@ -112,4 +112,12 @@ class Stock(BaseModel):
 
     def __str__(self):
         return f'{self.current_stock}'
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=Product)
+def create_stock(sender, instance, created, **kwargs):
+    if created:
+        Stock.objects.create(product=instance)
 

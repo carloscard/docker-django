@@ -17,6 +17,11 @@ class ProductCreateSerializer(ProductBaseSerializer):
     main_color = serializers.CharField(required=True)
     materials = serializers.ListField(child=serializers.IntegerField())
 
+    def validate_product_type_id(self, value):
+        if value not in ["T0002", "G0001"]:
+            raise serializers.ValidationError("Invalid product type id. Only G0001 for caps and T0002 for t-shirts")
+        return value
+
 
 class ProductUpdateSerializer(ProductBaseSerializer):
     pass
@@ -79,14 +84,18 @@ class ProductSerializer(ProductBaseSerializer):
                 'cart',
                 'material_composition',
                 'materials',
-                'update_at'
+                'state',
+                'deleted_at',
+                'updated_at'
             ]
         elif instance.product_type_id == "T0002":
             exclude_fields = [
                 'logo_color',
                 'cart',
                 'materials',
-                'update_at'
+                'state',
+                'deleted_at',
+                'updated_at'
             ]
 
         representation = super().to_representation(instance)

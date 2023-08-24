@@ -37,13 +37,13 @@ class CRUDProducts(CRUDBase):
         is_t_shirt = obj_in.validated_data.get('product_type_id').upper() == str(ProductType.TSHIRT)
 
         main_color = f"main_color={color_crud.get_color_name_by_id(obj_in.validated_data.get('main_color'))}&"
-        logo_color = f"logo_color={color_crud.get_color_name_by_id(obj_in.validated_data.get('logo_color'))}&"
         secondary_colors = "secondary_colors="
 
         for color in obj_in.validated_data.get('secondary_colors'):
             secondary_colors += f'{color_crud.get_color_name_by_id(color)}&'
 
         if is_cap:
+            logo_color = f"logo_color={color_crud.get_color_name_by_id(obj_in.validated_data.get('logo_color'))}&"
             data_to_join = [
                 f"product_name={obj_in.validated_data.get('product_name')}&",
                 f"product_type={obj_in.validated_data.get('product_type_id')}&",

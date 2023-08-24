@@ -57,9 +57,15 @@ LOCAL_APPS = [
 THIRD_APPS = [
     'rest_framework',
     'drf_yasg',
+    'django_crontab',
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+
+CRONJOBS = [
+    ('*/1 * * * *', 'products.cron.my_scheduled_job')
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -21,10 +21,14 @@ services:
     volumes:
       - static:/code/static
       - .:/code
+    command: >
+      sh -c "python iati_project/manage.py makemigrations &&
+             python iati_project/manage.py migrate &&
+             python iati_project/manage.py loaddata alldata.json &&
+             DJANGO_COLLECTSTATIC_NO_INPUT=1 python iati_project/manage.py collectstatic --noinput"
 
     depends_on:
       - db_postgres
-
 
   nginx:
     image: nginx:1.13
