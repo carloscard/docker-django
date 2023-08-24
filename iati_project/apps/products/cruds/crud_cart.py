@@ -8,7 +8,7 @@ class CRUDCart(CRUDBase):
         super().__init__(Cart)
 
     def get_multi(self):
-        return self.model.objects.filter(current_date=timezone.now().date(), state=True).all()
+        return self.model.objects.filter(current_date=timezone.now().date(), state=True, bought=False).all()
 
 
 cart_crud = CRUDCart()

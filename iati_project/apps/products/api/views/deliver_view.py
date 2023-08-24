@@ -27,6 +27,8 @@ class DeliverViewSets(viewsets.ModelViewSet):
         deliver_create_serializer = self.serializer_class(data=request.data)
 
         if deliver_create_serializer.is_valid():
+            deliver_crud.create(deliver_create_serializer)
+
             controller_deliver = ControllerDeliver(request)
             response, response_status = controller_deliver.send_email_to_customer()
 
