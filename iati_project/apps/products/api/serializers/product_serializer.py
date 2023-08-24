@@ -84,16 +84,18 @@ class ProductSerializer(ProductBaseSerializer):
                 'cart',
                 'material_composition',
                 'materials',
+                'state',
                 'deleted_at',
-                'update_at'
+                'updated_at'
             ]
         elif instance.product_type_id == "T0002":
             exclude_fields = [
                 'logo_color',
                 'cart',
                 'materials',
+                'state',
                 'deleted_at',
-                'update_at'
+                'updated_at'
             ]
 
         representation = super().to_representation(instance)
