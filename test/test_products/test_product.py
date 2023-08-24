@@ -12,13 +12,16 @@ class ProductTestCase(TestSetup):
         self.create_products()
         self.create_products_bad_format()
         self.show_products()
-        CartTestCase().create_cart()
-        CartTestCase().add_more_products()
-        CartTestCase().attempt_to_remove_excess_items()
-        CartTestCase().check_current_stock()
-        CartTestCase().remove_all_products_from_cart()
-        CartTestCase().check_current_stock_after_remove_cart_items()
-        CartTestCase().check_basket()
+
+        # Cart testing
+        test_cart = CartTestCase()
+        test_cart.create_cart()
+        test_cart.add_more_products()
+        test_cart.attempt_to_remove_excess_items()
+        test_cart.check_current_stock()
+        test_cart.remove_all_products_from_cart()
+        test_cart.check_current_stock_after_remove_cart_items()
+        test_cart.check_basket()
 
     def create_products(self):
         response = self.client_class().post(
